@@ -1,0 +1,84 @@
+#principalContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+#contactList{
+    width: 25%;
+    max-width: 720px;
+    margin-right: 10px;
+    border-right: 1px solid #81ecec;
+}
+
+.contactItemList{
+    margin-bottom: 3px;
+    border-radius: 2px;
+    border-bottom: 1px solid #81ecec;
+    max-width: 480px;
+}
+
+#userContactInformation{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+#userContactInformationContainer{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#PresentationContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 10px 10px;
+    border-bottom: 1px solid #81ecec;
+}
+
+#PersonalImage{
+    margin-right: 10px;
+}
+
+#BasicInformation{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    margin-top: 10px;
+}
+
+#DescriptionBox{
+    display: flex;
+    flex-direction: row;
+}
+
+#PersonalDescriptionBox{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin: 20px 1% 20px 0;
+    border-right: 1px solid #81ecec;
+}
+
+#ContactDescriptionBox{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 1%;
+    justify-content: flex-start;
+    text-align: left;
+    width: 80%;
+}
+
+.MuiChip-root{
+    margin: 5px 80% 0 0;
+}
+#ContactDescriptionBox p{
+    margin: 0px 0px 15px 1%;
+}
+
+#ContactDescriptionBox h5, #PersonalDescriptionBox h5{
+    margin-bottom: 25px;
+}

@@ -1,0 +1,34 @@
+#loginMainGrid{
+    height: 100vh;
+}
+
+#backgroundImgGrid{
+    background-image: url(https://source.unsplash.com/random);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#formGrid{
+    
+}
+
+#avatarBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 64px 32px;
+}
+
+#avatarFormBox{
+    margin: 8px;
+    background-color: #10ac84;
+}
+
+#formComponentBox{
+    margin-top: 8px;
+}
+
+#copyrightFunction{
+    margin-top: 40px;
+}

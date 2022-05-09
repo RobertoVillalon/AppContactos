@@ -1,0 +1,38 @@
+@media (max-width: 1400px){
+    #containerSearchResults .row-cols-sm-4{
+        justify-content: center
+    }    
+}
+
+#formSearchcontactContainer{
+    background: #ecf0f1;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#containerSearchResults{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#containerSearchError{
+    display: flex;
+    justify-content: center;
+}
+
+#containerSearchResults .card{
+    flex: 1 0 21%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    margin: 12px;
+    width: 330px;
+    max-width: 330px;
+    height: auto;
+}
+
+#Form-Contact{
+    margin-bottom: 50px;
+}
