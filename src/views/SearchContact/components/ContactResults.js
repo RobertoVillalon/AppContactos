@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useDispatch } from 'react-redux';
-import { insertContactAction } from "../../../store/ContactReducer"
+import { insertContactAction} from "../../../store/ContactReducer"
 
 export default function ContactResult({results, userID}){
     const dispatch = useDispatch();
@@ -30,7 +30,7 @@ export default function ContactResult({results, userID}){
                 <Container id="containerSearchResults">
                     {results.map((element) => (
                         <Card key={`${element.userID}`} id={`cardProfile-${element.userID}`} className="card">
-                            <CardMedia component="img" height="200" image={`http://localhost:8080/api/users:${element.userID}/getProfileimg`} alt="La Imagen no esta Disponible"/>
+                            <CardMedia component="img" height="200" image={`http://localhost:8080/api/users/images/${element.userID}/getProfileimg`} alt="La Imagen no esta Disponible"/>
                             <CardContent>
                                 <Typography gutterBottom variant="h5" component="div">
                                     {element.username}

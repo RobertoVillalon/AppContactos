@@ -10,16 +10,19 @@ import { getContactAction } from "../../store/ContactReducer"
 export default function ContactList(){
     const contactListData = useSelector(store => store.contact.contacts)
     const [contactData, setContactData] = useState([])
-    const id = useSelector(store => store.usuario.userLogged.userID)
+    const id = useSelector(store => store.usuario.user.user.userID)
     const navigate = useNavigate();
     let dispatch = useDispatch();
     let [loadedContacts, setLoadedContacts] = useState(false);
 
     useEffect(() => {
+
         if(id == null){
             navigate('/login');
         }
-        dispatch(getContactAction(id))
+        
+
+        dispatch(getContactAction(id));
     },[])
 
     useEffect(() => {

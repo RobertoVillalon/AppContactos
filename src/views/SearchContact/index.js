@@ -7,11 +7,11 @@ import NavigationBar from "../../components/NavigationBar"
 
 export default function AddContact(){
     let searchResults = useSelector(store => store.contact.searchcontact)
-    const userID = useSelector(store => store.usuario.userLogged.userID)
+    const id = useSelector(store => store.usuario.user.user.userID)
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(userID == null){
+        if(id == null){
             navigate('/login');
         }
     })
@@ -20,7 +20,7 @@ export default function AddContact(){
         <div className="d-grid gad-2">
             <NavigationBar />
             <FormContact />
-            <ContactResult results={searchResults} userID={userID}/>
+            <ContactResult results={searchResults} userID={id}/>
         </div>
 
     )

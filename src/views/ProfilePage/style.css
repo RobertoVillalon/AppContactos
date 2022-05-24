@@ -21,6 +21,27 @@
    margin: 20px;
 }
 
+#socialMediasList{
+    display: flex;
+    flex-direction: row;
+}
+
 #PersonalImage > input{
     display: none;
+}
+
+.textFieldEdit{
+    margin: 10px 0;
+}
+
+.textFieldEdit >div:focus{
+    border: 1px solid white;
+}
+
+.textFieldEdit > div{
+    background-color: white
+}
+
+.textFieldEdit:focus > div{
+    background-color: white
 }

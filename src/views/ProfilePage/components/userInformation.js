@@ -3,13 +3,14 @@ import {Avatar, Typography, Chip, Button, TextField} from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { updateUserInformation, updateUserImageProfile} from '../../../store/UserReducers';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { List, ListItem, ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 
 export default function UserInformation({userInformation}){
     const [informationLoading, setInformationLoading] = useState(false);
     const [personalInformationEditableMode, setPersonalInformationEditableMode] = useState(false);
-    const [personalInformationIsEdited, setPersonalInformationIsEdited] = useState(false);
+    let personalInformationIsEdited = false;
     const [laboralInformationEditableMode, setLaboralInformationEditableMode] = useState(false);
-    const [laboralInformationIsEdited, setLaboralInformationIsEdited] = useState(false);
+    let laboralInformationIsEdited = false;
     const [userImg, setUserImg] = useState(undefined);
     const dispatch = useDispatch();
 
@@ -17,20 +18,20 @@ export default function UserInformation({userInformation}){
         userInformation.length === 0 ? setInformationLoading(false) : setInformationLoading(true);
     },[userInformation])
 
-    const handlePersonalInformation = () => {
+    const handlePersonalInformation = async () => {
         if(document.getElementById("fieldUsername").value.length > 0){
             userInformation.username = document.getElementById("fieldUsername").value;
-            setPersonalInformationIsEdited(true);
+            personalInformationIsEdited = true;
         }
 
         if(document.getElementById("fieldUserCareer").value.length > 0){
             userInformation.userCareer = document.getElementById("fieldUserCareer").value;
-            setPersonalInformationIsEdited(true);
+            personalInformationIsEdited = true;
         }
 
         if(personalInformationIsEdited){
-          dispatch(updateUserInformation(userInformation));
-          setPersonalInformationIsEdited(false);
+            dispatch(updateUserInformation(userInformation));
+            personalInformationIsEdited = false;
         }
         
         if(userImg){
@@ -46,28 +47,28 @@ export default function UserInformation({userInformation}){
 
         if(document.getElementById("fieldPersonalDescription").value.length > 0){
             userInformation.personalDescription = document.getElementById("fieldPersonalDescription").value;
-            setLaboralInformationIsEdited(true);
+            laboralInformationIsEdited = true;
         }
         if(document.getElementById("fieldUserAddress").value.length > 0){
             userInformation.address = document.getElementById("fieldUserAddress").value;
-            setLaboralInformationIsEdited(true);
+            laboralInformationIsEdited = true;
         }
         if(document.getElementById("fieldUserEmail").value.length > 0){
             userInformation.email = document.getElementById("fieldUserEmail").value;
-            setLaboralInformationIsEdited(true);
+            laboralInformationIsEdited = true;
         }
         if(document.getElementById("fieldUserSocialMedias").value.length > 0){
             userInformation.socialMedias = document.getElementById("fieldUserSocialMedias").value;
-            setLaboralInformationIsEdited(true);
+            laboralInformationIsEdited = true;
         }
         if(document.getElementById("fieldUserPhone").value.length > 0){
             userInformation.phone = document.getElementById("fieldUserPhone").value;
-            setLaboralInformationIsEdited(true);
+            laboralInformationIsEdited = true;
         }
 
         if(laboralInformationIsEdited){
             dispatch(updateUserInformation(userInformation));
-            setLaboralInformationIsEdited(false);
+            laboralInformationIsEdited = false;
         }
     }
 
@@ -92,6 +93,7 @@ export default function UserInformation({userInformation}){
                 setLaboralInformationEditableMode(false)
                 e.target.innerText = "EDITAR INFORMACION LABORAL"
                 break; 
+            default: break;
         }
     }
 
@@ -105,7 +107,7 @@ export default function UserInformation({userInformation}){
                 <div id="userContactInformation">
                     <div id="PresentationContainer">
                             <div id="PersonalImage">
-                                <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users:${userInformation.userID}/getProfileimg`} />
+                                <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users/images/${userInformation.userID}/getProfileimg`} />
                             </div>
                             <div id="BasicInformation">
                                 <Typography variant="h5" color="black">{`${userInformation.username}`}</Typography>
@@ -125,7 +127,16 @@ export default function UserInformation({userInformation}){
                             <Chip label="Email" color="primary"/>
                             <Typography variant="body1" color="black">{`${userInformation.email}`}</Typography>
                             <Chip label="Redes Sociales" color="primary"/>
-                            <Typography variant="body1" color="black">{`${userInformation.socialMedias}`}</Typography>
+                            <List id="socialMediasList" sx={{maxWidth: '20%', maxHeight: '5'}}>
+                                <ListItem>
+                                    <ListItemButton>
+                                    <ListItemIcon>
+                                        <AddAPhotoIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Inbox" />
+                                    </ListItemButton>
+                                </ListItem>
+                            </List>
                             <Chip label="Telefono" color="primary"/>
                             <Typography variant="body1" color="black">{`${userInformation.phone}`}</Typography>
                         </div>
@@ -136,7 +147,7 @@ export default function UserInformation({userInformation}){
                 <div id="userContactInformation">
                     <div id="PresentationContainer">
                             <div id="PersonalImage">
-                                <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users:${userInformation.userID}/getProfileimg`} />
+                                <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users/images/${userInformation.userID}/getProfileimg`} />
                                 <label htmlFor="file-input">
                                     <AddAPhotoIcon id="changeImageIcon" color="primary"/>
                                 </label>
@@ -170,7 +181,7 @@ export default function UserInformation({userInformation}){
                 <div id="userContactInformation">
                     <div id="PresentationContainer">
                             <div id="PersonalImage">
-                                <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users:${userInformation.userID}/getProfileimg`} />
+                                <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users/images/${userInformation.userID}/getProfileimg`} />
                             </div>
                             <div id="BasicInformation">
                                 <Typography variant="h5" color="black">{`${userInformation.username}`}</Typography>
@@ -180,18 +191,18 @@ export default function UserInformation({userInformation}){
                     <div id="DescriptionBox">
                         <div id="PersonalDescriptionBox">
                             <Typography variant="h5" color="black">Descripcion Personal</Typography>
-                            <TextField id="fieldPersonalDescription" label="Descripcion Personal" variant="outlined" multiline={true} rows={8} />
+                            <TextField className="textFieldEdit" id="fieldPersonalDescription" variant="filled" multiline={true} rows={8} />
                         </div>
                         <div id="ContactDescriptionBox">
                             <Typography variant="h5" color="black">Curriculum</Typography>
                             <Chip label="Direccion" color="primary" />
-                            <TextField id="fieldUserAddress" label="Direccion" variant="outlined"/>
+                            <TextField className="textFieldEdit" id="fieldUserAddress"variant="filled"/>
                             <Chip label="Email" color="primary"  />
-                            <TextField fullWidth id="fieldUserEmail" label="Email" variant="outlined"/>
+                            <TextField className="textFieldEdit" fullWidth id="fieldUserEmail" variant="filled"/>
                             <Chip label="Redes Sociales" color="primary" />
-                            <TextField fullWidth id="fieldUserSocialMedias" label="Social Medias" variant="outlined"/>
+                            <TextField className="textFieldEdit" fullWidth id="fieldUserSocialMedias" variant="filled"/>
                             <Chip label="Telefono" color="primary"/>
-                            <TextField fullWidth id="fieldUserPhone" label="Phone" variant="outlined"/>
+                            <TextField className="textFieldEdit" fullWidth id="fieldUserPhone" variant="filled"/>
                         </div>
                         <Button id="personalDescriptionButton" onClick={(e) => handleChangeInformation(e)} variant="outlined">Editar Informacion Laboral</Button>
                     </div>

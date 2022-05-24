@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import './style.css';
 
 export default function ProfilePage(){
-    const user = useSelector(store => store.usuario.userLogged)
+    const user = useSelector(store => store.usuario.user?.user)
     const navigate = useNavigate();
 
     useEffect(() =>{

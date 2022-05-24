@@ -12,19 +12,19 @@ export default function InformationContactList({isLoading, getContactData, userL
   const getUser = (contact) => {
     getContactData(contact);
   }
-
+  
   return (
     <List id="contactList">
       {isLoading ? 
-        userListInformation.map((element) => {
-          const labelId = `checkbox-list-secondary-label-${element}`;
+        userListInformation.map((user) => {
+          const labelId = `checkbox-list-secondary-label-${user}`;
           return (
-            <ListItem onClick={() => getUser(element)} className="contactItemList" key={element.userID} disablePadding>
+            <ListItem onClick={() => getUser(user)} className="contactItemList" key={user.userID} disablePadding>
               <ListItemButton>
                 <ListItemAvatar>
-                  <Avatar alt={`Avatar n°`} src={`http://localhost:8080/api/users:${element.userID}/getProfileimg`} />
+                  <Avatar alt={`Avatar n°`} src={`http://localhost:8080/api/users/images/${user.userID}/getProfileimg`} />
                 </ListItemAvatar>
-                <ListItemText id={labelId} primary={`${element.username}`} />
+                <ListItemText id={labelId} primary={`${user.username}`} />
               </ListItemButton>
             </ListItem>
           );

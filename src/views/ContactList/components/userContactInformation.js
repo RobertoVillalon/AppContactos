@@ -26,7 +26,7 @@ export default function UserContactInformation({userInformation}){
             <div id="userContactInformation">
                 <div id="PresentationContainer">
                     <div id="PersonalImage">
-                        <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users:${userInformation.userID}/getProfileimg`} />
+                        <Avatar sx={{height: 100, width: 100}} src={`http://localhost:8080/api/users/images/${userInformation.userID}/getProfileimg`} />
                     </div>
                     <div id="BasicInformation">
                         <Typography variant="h5" color="black">{`${userInformation.username}`}</Typography>

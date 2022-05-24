@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux';
+import { Link, useNavigate} from 'react-router-dom'
+import { useDispatch} from 'react-redux';
 import { disconnectUserAction } from '../../store/UserReducers';
 import AppBar from '@mui/material/AppBar';
 import MenuList from '@mui/material/MenuList';
@@ -13,6 +13,7 @@ import "./style.css"
 
 export default function Navigation(){
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const userDisconnect = () => {
         dispatch(disconnectUserAction());
