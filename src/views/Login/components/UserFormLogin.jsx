@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { initSessionAction } from "../../../store/UserReducers";
+//import { initSessionAction } from "../../../store/UserReducers";
+import { getUserAction } from "../../../store/userSlice";
 import {Link as LinkDom} from 'react-router-dom'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -16,9 +17,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-export default function LoginForm({showAlert}){
+export default function LoginForm(){
     const dispatch = useDispatch();
     const theme = createTheme();
+    //const [showAlert, setShowAlert] = useState(false);
     
     function Copyright(props) {
         return (
@@ -35,10 +37,11 @@ export default function LoginForm({showAlert}){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let userForm = document.getElementById('email').value;
-        let passwordForm = document.getElementById('password').value;
+        let usernameOrEmail = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
 
-        dispatch(initSessionAction(userForm, passwordForm));
+        dispatch(getUserAction({usernameOrEmail, password}));
+
     };
 
     return (

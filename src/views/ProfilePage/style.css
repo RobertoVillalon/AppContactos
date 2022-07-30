@@ -45,3 +45,14 @@
 .textFieldEdit:focus > div{
     background-color: white
 }
+
+#socialMediasList{
+    display: flex;
+    flex-direction: column;
+}
+
+#socialMediasListItem{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}

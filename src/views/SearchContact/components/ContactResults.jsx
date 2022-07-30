@@ -8,14 +8,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useDispatch } from 'react-redux';
-import { insertContactAction} from "../../../store/ContactReducer"
+import { insertContactAction } from "../../../store/contactSlice"
 
 export default function ContactResult({results, userID}){
     const dispatch = useDispatch();
-
     const addContact = (idContact) => {
-
-        dispatch(insertContactAction(idContact, userID))
+        dispatch(insertContactAction({idContact, userID}))
 
     };
     

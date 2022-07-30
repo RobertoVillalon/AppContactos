@@ -4,15 +4,15 @@ import NavigationBar from "../../components/NavigationBar"
 import UserContactInformation from './components/userContactInformation';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom'
-import { getContactAction } from "../../store/ContactReducer"
+import { getContactAction } from "../../store/contactSlice"
 
 
 export default function ContactList(){
-    const contactListData = useSelector(store => store.contact.contacts)
+    let contactListData = useSelector((state) => state.contact.userContacts.contacts)
     const [contactData, setContactData] = useState([])
-    const id = useSelector(store => store.usuario.user.user.userID)
+    const id = useSelector((state) => state.user.infoUser.userID)
     const navigate = useNavigate();
-    let dispatch = useDispatch();
+    const dispatch = useDispatch();
     let [loadedContacts, setLoadedContacts] = useState(false);
 
     useEffect(() => {
@@ -20,10 +20,10 @@ export default function ContactList(){
         if(id == null){
             navigate('/login');
         }
-        
 
-        dispatch(getContactAction(id));
-    },[])
+        dispatch(getContactAction(id)); 
+
+    },[id, dispatch, navigate])
 
     useEffect(() => {
         Array.isArray(contactListData) ? setLoadedContacts(true) : setLoadedContacts(false)

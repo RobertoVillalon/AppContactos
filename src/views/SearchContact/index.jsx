@@ -6,8 +6,8 @@ import ContactResult from "./components/ContactResults"
 import NavigationBar from "../../components/NavigationBar"
 
 export default function AddContact(){
-    let searchResults = useSelector(store => store.contact.searchcontact)
-    const id = useSelector(store => store.usuario.user.user.userID)
+    let searchResults = useSelector((state) => state.contact.searchContact.foundContacts)
+    const id = useSelector((state) => state.user.infoUser.userID)
     const navigate = useNavigate();
 
     useEffect(() => {

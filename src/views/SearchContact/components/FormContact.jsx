@@ -1,5 +1,5 @@
 import { useDispatch} from 'react-redux';
-import { searchContactAction } from "../../../store/ContactReducer"
+import { searchContactAction } from "../../../store/contactSlice"
 import {TextField} from '@mui/material';
 
 export default function FormContact(){

@@ -8,18 +8,18 @@ import { Skeleton, Avatar } from '@mui/material';
 import "../style.css";
 
 export default function InformationContactList({isLoading, getContactData, userListInformation}) {
-
+  
   const getUser = (contact) => {
     getContactData(contact);
   }
-  
+
   return (
     <List id="contactList">
       {isLoading ? 
         userListInformation.map((user) => {
           const labelId = `checkbox-list-secondary-label-${user}`;
           return (
-            <ListItem onClick={() => getUser(user)} className="contactItemList" key={user.userID} disablePadding>
+            <ListItem onClick={() => getUser(user)} className="contactItemList" key={user.userID}>
               <ListItemButton>
                 <ListItemAvatar>
                   <Avatar alt={`Avatar n°`} src={`http://localhost:8080/api/users/images/${user.userID}/getProfileimg`} />

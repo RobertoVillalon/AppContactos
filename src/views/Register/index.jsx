@@ -1,7 +1,7 @@
 import React from 'react';
 import UserRegisterForm from './components/UserFormRegister';
 import { useDispatch } from 'react-redux';
-import { registerUserAction } from "../../store/UserReducers"
+import { registerUserAction } from "../../store/userSlice"
 import "./style.css";
 
 export default function Register(){
