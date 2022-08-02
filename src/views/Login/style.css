@@ -9,10 +9,6 @@
     background-position: center;
 }
 
-#formGrid{
-    
-}
-
 #avatarBox{
     display: flex;
     flex-direction: column;
@@ -20,7 +16,7 @@
     margin: 64px 32px;
 }
 
-#avatarFormBox{
+#loginAvatarFormBox{
     margin: 8px;
     background-color: #10ac84;
 }

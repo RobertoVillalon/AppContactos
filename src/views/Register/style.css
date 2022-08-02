@@ -3,4 +3,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    
+}
+
+#registerMainGrid{
+    height: 100vh;
+}
+
+#registerAvatarFormBox{
+    margin: 8px;
+    background-color: #9c27b0;
 }

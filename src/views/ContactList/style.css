@@ -1,11 +1,13 @@
 #principalContainer{
     display: flex;
     flex-direction: row;
+    height: 100vh;
 }
 
 #contactList{
     width: 25%;
     max-width: 720px;
+    min-height: 100%;
     margin-right: 10px;
     border-right: 1px solid #81ecec;
 }
@@ -35,25 +37,36 @@
 #PresentationContainer{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 10px 10px;
     border-bottom: 1px solid #81ecec;
 }
 
 #PersonalImage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-right: 10px;
+}
+
+#PersonalInfo{
+    display: flex;
+    flex-direction: column;
 }
 
 #BasicInformation{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     text-align: left;
     margin-top: 10px;
 }
 
-#DescriptionBox{
+#DescriptionContainer{
     display: flex;
     flex-direction: row;
+    margin: 10px 10px;
+    justify-content: space-between;
 }
 
 #PersonalDescriptionBox{
@@ -76,6 +89,7 @@
 .MuiChip-root{
     margin: 5px 80% 0 0;
 }
+
 #ContactDescriptionBox p{
     margin: 0px 0px 15px 1%;
 }

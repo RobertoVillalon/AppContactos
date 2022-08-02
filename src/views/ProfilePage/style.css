@@ -1,16 +1,9 @@
 #PresentationContainer button{
-    position: absolute;
-    top: 100px; 
-    right: 150px;
-    transform: translate(50%, -50%);
+    height: 4vh;
 }
 
-#DescriptionBox button{
-    position: absolute;
-    min-width: 10%;
-    top: 210px; 
-    right: 150px;
-    transform: translate(50%, -50%);
+#DescriptionContainer button{
+    height: 4vh;
 }
 
 #PersonalDescriptionBox:nth-child(1){ 

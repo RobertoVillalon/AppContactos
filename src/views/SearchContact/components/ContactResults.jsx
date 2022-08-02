@@ -25,7 +25,7 @@ export default function ContactResult({results, userID}){
         )
         }else{
             return (
-                <Container id="containerSearchResults">
+                <div id="containerSearchResults">
                     {results.map((element) => (
                         <Card key={`${element.userID}`} id={`cardProfile-${element.userID}`} className="card">
                             <CardMedia component="img" height="200" image={`http://localhost:8080/api/users/images/${element.userID}/getProfileimg`} alt="La Imagen no esta Disponible"/>
@@ -43,7 +43,7 @@ export default function ContactResult({results, userID}){
                         </Card>
                         ))
                     }
-                </Container>
+                </div>
             )
         }
 }

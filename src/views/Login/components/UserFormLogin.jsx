@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 //import { initSessionAction } from "../../../store/UserReducers";
 import { getUserAction } from "../../../store/userSlice";
 import {Link as LinkDom} from 'react-router-dom'
@@ -16,12 +16,25 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { motion } from 'framer-motion'
+import { Alert } from "@mui/material"
+
 
 export default function LoginForm(){
     const dispatch = useDispatch();
     const theme = createTheme();
-    //const [showAlert, setShowAlert] = useState(false);
+    const initSessionState = useSelector((state) => state.user.initSessionStatus)
     
+
+  let handleAlert = () => {
+
+      return(
+          <motion.div style={{ display: 'absolute'}} initial={{scale: 0}} animate={{scale: 1}} transition={{ ease: "easeOut", duration: 1, type: "spring"}}>
+             <Alert variant="outlined" severity="error">Error de credenciales </Alert> 
+          </motion.div>
+      )
+  }
+
     function Copyright(props) {
         return (
           <Typography variant="body2" color="text.secondary" align="center" {...props}>
@@ -49,15 +62,18 @@ export default function LoginForm(){
           <Grid id="loginMainGrid" container component="main">
             <CssBaseline />
             <Grid id="backgroundImgGrid" item sm={4} md={7} />
-            <Grid id="formGrid" item md={5} component={Paper} elevation={6}>
+            <Grid id="formGrid" item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
               <Box id="avatarBox">
-                <Avatar id="avatarFormBox">
-                  <LockOutlinedIcon />
-                </Avatar>
+                <motion.div initial={{scale: 0}} animate={{scale: 1}} transition={{ ease: "easeOut", duration: 1 }}>
+                  <Avatar id="loginAvatarFormBox">
+                    <LockOutlinedIcon />
+                  </Avatar>
+                </motion.div>
                 <Typography component="h1" variant="h5">
                   Sign in
                 </Typography>
                 <Box id="formComponentBox" component="form" noValidate onSubmit={handleSubmit}>
+                  {initSessionState === 'rejected' && handleAlert()}
                   <TextField margin="normal" required fullWidth id="email" label="Email Address" name="email" autoComplete="email" autoFocus />
                   <TextField margin="normal" required fullWidth name="password" label="Password" type="password" id="password" autoComplete="current-password" />
                   <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
