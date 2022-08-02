@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# El objetivo del proyecto es la administración y gestion de informacion laboral de personas, los usuarios tendran la capacidad de visualizar el curriculum de la otra persona 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Getting Started with Create React App
 
 ## Available Scripts
 
